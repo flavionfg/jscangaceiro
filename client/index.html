@@ -63,15 +63,10 @@
 
     <script>
 
-        let hoje = new Date();
-
-        let n1 = new Negociacao(hoje, 5, 700);
-
-        console.log(n1.data);
-
-        hoje.setDate(11);
-
-        console.log(n1.data);
+        let controller = new NegociacaoController();
+        document.
+        querySelector('.form').
+        addEventListener('submit', controller.adiciona.bind(controller));
 
     </script>
     
