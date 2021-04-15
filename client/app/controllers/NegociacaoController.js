@@ -8,13 +8,21 @@ class NegociacaoController {
         this._inputQuantidade = $('#quantidade');
         this._inputValor = $('#valor');
     }
-    
     adiciona(event) {
-        // cancelando a submissão do formulário
         event.preventDefault();
-        // precisamos acessar as propriedades através de this
-        console.log(this._inputData.value);
-        console.log(parseInt(this._inputQuantidade.value));
-        console.log(parseFloat(this._inputValor.value));
+        let data = new Date(
+            ...this._inputData.value
+            .split('-')
+            .map(function(item, indice){
+                return item - indice % 2;
+            }));
+           
+        console.log(data);
+            let negociacao = new Negociacao(
+                this._inputData.value,
+                parseInt(this._inputQuantidade.value),
+                parseFloat(this._inputValor.value)
+            );
+                console.log(negociacao);
         }
 }
